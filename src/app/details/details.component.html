@@ -1,0 +1,39 @@
+<div class="details-section">
+  <div class="row display-input-data">
+    <div class="col-md-6">{{userMessage}}</div> <!-- User messages which is entered in the home page -->
+    <div class="col-md-6 text-right"><a routerLink="/home"> < Go to home </a></div> <!-- Go to home page link -->
+  </div>
+
+  <!-- User details table start -->
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- First name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> First name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      </ng-container>
+
+      <!-- Last name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <!-- User details table end -->
+</div>
